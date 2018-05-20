@@ -1,0 +1,18 @@
+ version: "3.0"
+ services:
+  postgres:
+    image: postgres:9.6-alpine
+    restart: always
+  backend:
+    build:
+      context: ${PWD}/backend
+      dockerfile: ${PWD}/backend/Dockerfile
+  sensors:
+    build:
+      context: ${PWD}/sensors
+      dockerfile: ${PWD}/sensors/Dockerfile
+  frontend:
+    build: 
+      context: ${PWD}/frontend
+      dockerfile: ${PWD}/frontend/Dockerfile
+    
